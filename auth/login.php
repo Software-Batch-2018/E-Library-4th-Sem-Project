@@ -17,6 +17,16 @@
 <?php 
 
 $fullUrll = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+if (isset($_GET['chapter_id']))
+    {
+        $url = $_GET['redirectl'].'&chapter_id='.$_GET['chapter_id'];
+    }
+    else
+    {
+        $url= $_GET['redirectl'];
+    }
+
 $error=NULL;
 include ('config.php');
 include ('../components/header.php');
@@ -40,13 +50,29 @@ if (isset($_POST['submit'])) {
 		$_SESSION['username'] = $row['username'];
 		$_SESSION['role'] = $row['role'];
 		if (isset($_GET['redirectl'])) {
-			header('Location: ' . $_GET['redirectl']);
+			if (isset($_GET['chapter_id']))
+			{
+				$url = $_GET['redirectl'].'&chapter_id='.$_GET['chapter_id'];
+			}
+			else
+			{
+				$url= $_GET['redirectl'];
+			}
+			header("Location: $url");
 		} else {
 			header("Location: /E-library/index.php");
 		}
 		
 	} else {
-		header("Location: login.php?redirectl=".$_GET['redirectl']."?login=error");
+		if (isset($_GET['chapter_id']))
+		{
+			$url = $_GET['redirectl'].'&chapter_id='.$_GET['chapter_id'];
+		}
+		else
+		{
+			$url= $_GET['redirectl'];
+		}
+		header("Location: login.php?redirectl=".$url."&login=error");
 	}
 }
 

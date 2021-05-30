@@ -35,22 +35,31 @@ if (isset($_POST['submit'])) {
 	if ($password == $cpassword) {
 		$sql = "SELECT * FROM users WHERE email='$email'";
 		$result = mysqli_query($conn, $sql);
+		if (isset($_GET['chapter_id']))
+					{
+						$url = $_GET['redirectr'].'&chapter_id='.$_GET['chapter_id'];
+					}
+					else
+					{
+						$url= $_GET['redirectr'];
+					} 
 		if (!$result->num_rows > 0) {
 			$sql = "INSERT INTO users (username, email, password)
 					VALUES ('$username', '$email', '$password')";
 			$result = mysqli_query($conn, $sql);
+			
 			if ($result) {
-				header('Location: ' . $_GET['redirectr'].'?msg=success');
+				header('Location: ' . $url.'&msg=success');
 
 			} else {
-				header("Location: register.php?redirectr=".$_GET['redirectr']."?register=error");
+				header("Location: register.php?redirectr=".$url."&register=error");
 			}
 		} else {
-			header("Location: register.php?redirectr=".$_GET['redirectr']."?register=email");
+			header("Location: register.php?redirectr=".$url."&register=email");
 		}
 		
 	} else {
-		header("Location: register.php?redirectr=".$_GET['redirectr']."?register=password");
+		header("Location: register.php?redirectr=".$url."&register=password");
 	}
 }
 
@@ -100,7 +109,17 @@ if (isset($_POST['submit'])) {
 					?>
 					<button class="login__submit" name="submit">Register</button>
 
-					<a href="<?php echo $_GET['redirectr'];?>" class="login__forgot">Already Have an account? Login Here</a>
+					<a href="
+					<?php
+					if (isset($_GET['chapter_id']))
+					{
+						$url = $_GET['redirectr'].'&chapter_id='.$_GET['chapter_id'];
+					}
+					else
+					{
+						$url= $_GET['redirectr'];
+					} 
+					echo $url;?>" class="login__forgot">Already Have an account? Login Here</a>
 				</form>
 				
 			</div>

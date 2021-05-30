@@ -21,11 +21,11 @@ session_start();
 					if($_SESSION['role'] == 'admin')
 					{
    			    		echo '<li><a style="text-decoration: none;" href="/E-Library/components/admin/admin.php">Dashboard</a></li>';
-						echo '<li><a style="text-decoration: none;" href="/E-Library/auth/logout.php?redirect='.$fullUrlh.'">Logout</a></li>';
+						echo '<li><a style="text-decoration: none;" href="/E-Library/auth/logout.php?redirectl='.$fullUrlh.'">Logout</a></li>';
   			  		}
 					else
 					{
-						echo '<li><a style="text-decoration: none;" href="/E-Library/auth/logout.php?redirect='.$fullUrlh.'">Logout</a></li>';
+						echo '<li><a style="text-decoration: none;" href="/E-Library/auth/logout.php?redirectl='.$fullUrlh.'">Logout</a></li>';
 					}
 			   }
    			}
