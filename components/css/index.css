@@ -1,0 +1,249 @@
+
+section#one {
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+section#one h1 {
+  visibility: hidden;
+  opacity: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0;
+}
+section#one .title {
+  min-width: 350px;
+  max-height: 80px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+}
+section#one .title text {
+  letter-spacing: 2px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+section#one .title path {
+  stroke: #fff;
+  stroke-width: 4;
+  animation-delay: 1s;
+}
+section#one::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  
+}
+section#two
+{
+	position: relative;
+	height: fit-content;
+}
+section#two .level
+{
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+section#two .level h2
+{
+  padding-left: 60px;
+  display: flex;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  align-items: center;
+  color: aliceblue;
+}
+
+section#two .level .blocks
+ {
+    position: relative;
+    gap: 20px;
+  padding: 2em 0;
+  display: flex;
+  width: max-content;
+  flex-flow: row wrap;
+  row-gap: 20px;
+  align-items: center;
+}
+section#two .level .blocks .block
+ {
+    position: relative;
+  margin: 0 auto;
+  display: flex;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #312d3c;
+  border-radius: 1em;
+  background-image: url("../index.jpg");
+  background-size: 200px 300px;
+  transition: all 0.2s linear;
+}
+section#two .level .blocks .block:hover{
+  transform: translateY(-10px);
+  background-color: #312d3c;
+}
+
+section#two .level .blocks .block p
+{
+    font-size: 25px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .overlay:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 30%;
+    position: fixed;
+    transition: all 5s ease-in-out;
+    overflow-y: scroll;
+    max-height: 50%;
+  }
+  
+  .popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+  }
+  .popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+  }
+  .popup .close:hover {
+    color: #06D85F;
+  }
+  .popup .content {
+    position: relative;
+    max-height: 30%;
+    overflow-y: scroll;
+  }
+  
+  @media screen and (max-width: 700px){
+    .popup{
+      width: 70%;
+    }
+  }
+
+section h2 {
+  font-family: 'Montserrat', sans-serif;
+}
+section h2 span {
+  color: aliceblue;
+}
+section h2 span:hover {
+  cursor:default;
+  filter: saturate(50);
+}
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+.content p.lead {
+  font-size: 1.25rem;
+}
+.content .blur {
+  position: relative;
+  overflow: auto;
+  margin: auto;
+  margin-left: 2em;
+  padding: 1em;
+  width: 100%;
+  height: 350px;
+  border-radius: 0.35em;
+}
+.content .blur::before {
+  position: absolute;
+  content: '';
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  box-shadow: inset 0 0 0 600px rgba(255,255,255,0.3);
+  filter: blur(10px);
+}
+form {
+  position: relative;
+  z-index: 3;
+  padding: 1em;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 2px solid #fff;
+  border-radius: 0.35em;
+}
+form img {
+  width: 64px;
+  height: 64px;
+}
+form input {
+  margin-bottom: 1em;
+  min-height: 3em;
+  font-size: 1em;
+  color: #fff;
+  border: 0;
+  border-bottom: 2px solid #fff;
+  background: none;
+}
+form input::placeholder {
+  position: relative;
+  top: 0;
+  color: inherit;
+  transition: all 0.2s linear;
+}
+form input:focus {
+  outline: none;
+}
+form input:focus::placeholder {
+  top: -1.25em;
+  font-size: 0.825rem;
+}
+form .button {
+  position: relative;
+  margin-top: 1em;
+  padding: 1em 3em;
+  text-transform: uppercase;
+  display: block;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #fff;
+  border: 0;
+  border-radius: 0.35em;
+  background-color: #df2359;
+}
